@@ -1,4 +1,4 @@
-// NewDropDown.jsx - PERFECTLY VISIBLE & RESPONSIVE
+// NewDropDown.jsx - FULLY FIXED & PERFECTLY RESPONSIVE
 import { useState, useRef, useEffect } from "react";
 import { FaBook, FaChevronDown } from "react-icons/fa";
 
@@ -34,9 +34,8 @@ const NewDropDown = ({ value, onChange, name }) => {
   // Calculate perfect adaptive height
   const getDropdownHeight = () => {
     const spaceBelow = window.innerHeight - (ref.current?.getBoundingClientRect().bottom || 0);
-    const maxVisibleItems = Math.floor(spaceBelow / 44); // 44px per item
-    const idealHeight = Math.min(courses.length * 44, 400); // Max 400px
-    return Math.min(maxVisibleItems * 44, idealHeight);
+    const maxVisibleItems = Math.floor(spaceBelow / 44);
+    return Math.min(maxVisibleItems * 44, courses.length * 44, 400);
   };
 
   return (
@@ -57,17 +56,15 @@ const NewDropDown = ({ value, onChange, name }) => {
           />
         </div>
 
-        {/* PERFECT ADAPTIVE DROPDOWN - NEVER CROPPED */}
+        {/* PERFECTLY VISIBLE DROPDOWN - FULLY FIXED */}
         {open && (
           <div 
             ref={dropdownRef}
-            className="absolute left-0 w-full bg-white border border-gray-200 rounded-xl shadow-2xl z-[9999]"
+            className="absolute left-0 w-full bg-white border border-gray-200 rounded-xl shadow-2xl z-[9999] overflow-hidden custom-scrollbar"
             style={{ 
               top: '100%',
-              height: `${getDropdownHeight()}px`,
-              overflowY: 'auto',
-              padding: '4px 0',
-              maxHeight: '80vh' // Never exceeds 80% viewport
+              maxHeight: `${getDropdownHeight()}px`,
+              overflowY: 'auto'
             }}
           >
             <style jsx>{`
@@ -86,12 +83,12 @@ const NewDropDown = ({ value, onChange, name }) => {
               }
             `}</style>
             
-            <div className="custom-scrollbar">
+            <div className="py-1">
               {courses.map((course, index) => (
                 <div
                   key={index}
                   onClick={() => handleSelect(course)}
-                  className="px-4 py-2.5 text-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer transition-all duration-200 border-l-4 border-transparent hover:border-blue-400 hover:text-blue-800 font-medium flex items-center h-[44px] mx-1 rounded-lg"
+                  className="px-4 text-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 cursor-pointer transition-all duration-200 border-l-4 border-transparent hover:border-blue-400 hover:text-blue-800 font-medium flex items-center min-h-[44px] leading-[44px] mx-1 hover:mx-1 first:hover:rounded-l-lg"
                 >
                   {course}
                 </div>
@@ -105,4 +102,3 @@ const NewDropDown = ({ value, onChange, name }) => {
 };
 
 export default NewDropDown;
-

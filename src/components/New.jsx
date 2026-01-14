@@ -271,7 +271,7 @@ const StudentRegistrationForm = () => {
               Talk to a Mentor
             </button>
             <p className="text-sm text-center">
-              No Spam. Our Counselor will can you within 24 hours
+              No Spam. Our Counselor will contact you within 24 hours
             </p>
           </form>
         </div>
