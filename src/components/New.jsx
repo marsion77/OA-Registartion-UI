@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import { FaUser, FaEnvelope, FaPhone, FaBook, FaTimes } from "react-icons/fa";
 import Reg from "../assets/Reg.png";
-import Register from "../assets/Register.png";
+import Regg from "../assets/Regg.png";
 import oaLogo from "../assets/5.png";
-// import CourseDropdown from "./CourseDropDown";
 import NewDropDown from "./NewDropDown";
 
 const StudentRegistrationForm = () => {
@@ -109,7 +108,8 @@ const StudentRegistrationForm = () => {
         <div className="relative flex flex-col justify-start p-10 md:p-16 overflow-hidden">
           <img
             // src={Register}
-            src={Reg}
+            src={Regg}
+            // src = {Reg}
             alt="Student Illustration"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
@@ -118,17 +118,25 @@ const StudentRegistrationForm = () => {
               <img src={oaLogo} alt="Ocean Academy" className="w-10" />
             </div>
             <div>
-              <h3 className="text-2xl font-semibold text-black">
+              <h3 className="text-2xl font-semibold bg-linear-to-r from-[#2E81A9] to-[#00AEFF] bg-clip-text text-transparent">
                 Ocean Academy
               </h3>
-              <p className="text-sm text-gray-700">A Mentor Beside You</p>
+
+              <p className="text-sm font-semibold text-gray-700">
+                A Mentor Beside You
+              </p>
             </div>
           </div>
           <div className="relative z-10">
-            <h1 className="text-4xl font-bold mb-6 text-black">
-              Kickstart Your Learning Journey
+            <h1
+              className="text-4xl font-bold leading-11 mb-6 
+  bg-linear-to-r from-[#1E3A8A] to-[#3B82F6] 
+  bg-clip-text text-transparent"
+            >
+              Transform Your Learning into Real World Career Success
             </h1>
-            <p className="mb-6 text-lg text-grey">
+
+            <p className="mt-5 text-lg  text-black">
               Join our student community <br />
               and unlock your potential with <br /> expert mentorship.
             </p>
